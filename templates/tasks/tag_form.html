@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'include/nav.html' %}
+<h2>{{ form.instance.pk|yesno:"Update Tag,Add Tag" }}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{{ form.instance.pk|yesno:"Update,Add" }}</button>
+</form>
+{% endblock %}
